@@ -1,6 +1,6 @@
 [package]
 name = "tokio-stream-extra"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Vlad Eminovici <veminovici@hotmail.com>"]
 # categories = ["tokio", "stream"]
 description = "A crate for stream extensions."
