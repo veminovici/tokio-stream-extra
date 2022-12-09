@@ -1,0 +1,24 @@
+[package]
+name = "tokio-stream-extra"
+version = "0.0.1"
+authors = ["Vlad Eminovici <veminovici@hotmail.com>"]
+# categories = ["tokio", "stream"]
+description = "A crate for stream extensions."
+edition = "2021"
+keywords = ["stream", "tokio"]
+readme = "README.md"
+repository = "https://github.com/veminovici/tokio-streams-extra"
+license = "MIT OR Apache-2.0"
+exclude = ["/coverage", "**/.*"]
+documentation = "https://docs.rs/tokio-streams-extra"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "0.3"
+pin-project = "1.0"
+
+[dev-dependencies]
+tokio-test = "0.4"
+tokio = { version = "1.23", features = ["full"]}
+tokio-stream = { version = "0.1.11", features=["io-util"]}
