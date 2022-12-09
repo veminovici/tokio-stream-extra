@@ -1,15 +1,15 @@
 [package]
 name = "tokio-stream-extra"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Vlad Eminovici <veminovici@hotmail.com>"]
 # categories = ["tokio", "stream"]
 description = "A crate for stream extensions."
 edition = "2021"
 keywords = ["stream", "tokio"]
 readme = "README.md"
-repository = "https://github.com/veminovici/tokio-streams-extra"
+repository = "https://github.com/veminovici/tokio-stream-extra"
 license = "MIT OR Apache-2.0"
-exclude = ["/coverage", "**/.*"]
+exclude = ["/coverage"]
 documentation = "https://docs.rs/tokio-streams-extra"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
