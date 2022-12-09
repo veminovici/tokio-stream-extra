@@ -1,6 +1,6 @@
 use futures::Stream;
 
-use crate::split::Split;
+use crate::{add_pendings::AddPendings, split::Split};
 
 /// An extension trait for the [`Stream`] trait that provides a variety of
 /// convenient combinator functions.
@@ -35,6 +35,13 @@ pub trait StreamExtra: Stream {
     {
         Split::new(self, is_separator)
     }
+
+    fn add_pendings(self, pendings: usize) -> AddPendings<Self>
+    where
+        Self: Sized,
+    {
+        AddPendings::new(self, pendings)
+    }
 }
 
 /// Blanket implementation of [`StreamExtra`] for all
@@ -47,7 +54,7 @@ mod unit_tests {
     use tokio_stream::{self as stream, StreamExt};
 
     #[tokio::test]
-    async fn split_str() {
+    async fn split_() {
         fn is_separator(s: &str) -> bool {
             s == "\n"
         }
@@ -65,5 +72,16 @@ mod unit_tests {
             .await;
 
         assert_eq!(2, xs.len());
+    }
+
+    #[tokio::test]
+    async fn add_pendings_() {
+        let _src = vec![1, 2, 3];
+        // let xs: Vec<i32> = stream::iter(src).add_pendings(1).collect().await;
+        // assert_eq!(vec![1, 2, 3], xs)
+
+        // let mut s = stream::iter(src).add_pendings(1);
+        // let x = s.next().await;
+        // assert_eq!(Some(1), x)
     }
 }

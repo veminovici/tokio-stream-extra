@@ -15,6 +15,17 @@ pub struct Split<S, F, T> {
     items: Vec<T>,
 }
 
+impl<S, F, T> Split<S, F, T> {
+    pub(super) fn new(stream: S, is_separator: F) -> Self {
+        Self {
+            stream,
+            is_separator,
+            items: Vec::new(),
+        }
+    }
+}
+
+
 impl<S, F, T> fmt::Debug for Split<S, F, T>
 where
     S: fmt::Debug,
@@ -23,16 +34,6 @@ where
         f.debug_struct("Split")
             .field("stream", &self.stream)
             .finish()
-    }
-}
-
-impl<S, F, T> Split<S, F, T> {
-    pub fn new(stream: S, is_separator: F) -> Self {
-        Self {
-            stream,
-            is_separator,
-            items: Vec::new(),
-        }
     }
 }
 
@@ -75,14 +76,5 @@ where
                 }
             }
         }
-    }
-}
-
-#[cfg(test)]
-mod unit_tests {
-
-    #[tokio::test]
-    async fn simple_() {
-        assert!(true);
     }
 }
